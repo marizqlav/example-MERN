@@ -37,12 +37,13 @@ export const signup = async (req: Request, res: Response) => {
   try {
     if (rol === "admin") {
       //pasarela de pago
-      const session = await createCheackoutSession(email);
-      const customerSuscription = await getCustomerSuscriptionByEmail(email);
-      if (customerSuscription) {
-        await registerUser(req, res);
-      }
-      return res.status(200).json({ url: session.url });
+      // const session = await createCheackoutSession(email);
+      // const customerSuscription = await getCustomerSuscriptionByEmail(email);
+      // if (customerSuscription) {
+      //   await registerUser(req, res);
+      // }
+      // return res.status(200).json({ url: session.url });
+      registerUser(req, res);
     } else {
       await registerUser(req, res);
     }
